@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace itonigames.unitystuff.HierarchicalStateMachine
+namespace itonigames.unitystuff.HierarchicalStateMachine.HSM
 {
     [Serializable]
     public class StateMachine : MonoBehaviour

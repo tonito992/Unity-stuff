@@ -1,4 +1,6 @@
-﻿namespace itonigames.unitystuff.HierarchicalStateMachine.Player
+﻿using itonigames.unitystuff.HierarchicalStateMachine.HSM;
+
+namespace itonigames.unitystuff.HierarchicalStateMachine.Example.Player
 {
     public class PlayerBaseState : BaseState
     {

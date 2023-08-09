@@ -1,4 +1,4 @@
-﻿namespace itonigames.unitystuff.HierarchicalStateMachine.Player
+﻿namespace itonigames.unitystuff.HierarchicalStateMachine.Example.Player
 {
     public class PlayerIdleState : PlayerBaseState
     {

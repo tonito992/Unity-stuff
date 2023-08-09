@@ -1,7 +1,8 @@
+using itonigames.unitystuff.HierarchicalStateMachine.HSM;
 using TMPro;
 using UnityEngine;
 
-namespace itonigames.unitystuff.HierarchicalStateMachine.Player
+namespace itonigames.unitystuff.HierarchicalStateMachine.Example.Player
 {
     public class PlayerController : StateMachine
     {

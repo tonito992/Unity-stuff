@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using itonigames.unitystuff.HierarchicalStateMachine.HSM;
 
-namespace itonigames.unitystuff.HierarchicalStateMachine.Player
+namespace itonigames.unitystuff.HierarchicalStateMachine.Example.Player
 {
     public class PlayerStateFactory : StateFactory
     {

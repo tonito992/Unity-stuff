@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace itonigames.unitystuff.HierarchicalStateMachine
+namespace itonigames.unitystuff.HierarchicalStateMachine.HSM
 {
     [Serializable]
     public abstract class BaseState
