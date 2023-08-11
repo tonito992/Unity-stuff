@@ -1,4 +1,3 @@
-using System;
 using itonigames.unitystuff.Utility;
 using UnityEngine;
 
@@ -6,26 +5,32 @@ namespace itonigames.unitystuff.InventorySystem.Example
 {
     public class InventoryDemo : MonoBehaviour
     {
+        [SerializeField] private int inventoryCapacity;
+
         private Inventory inventory;
         private InputManager inputManager;
 
         private void Awake()
         {
-            this.inventory = new Inventory();
+            this.inventory = new Inventory(this.inventoryCapacity);
             this.inputManager = new InputManager();
         }
 
         private void Update()
         {
-            if (this.inputManager.Mouse.LeftClick.WasPressedThisFrame())
-            {
-                RaycastUtil.Raycast(out InventoryWorldItem item);
-                if (item != null)
-                {
-                    this.inventory.Add(item.Item, item.Item.Amount);
-                    item.Collect();
-                }
-            }
+            this.InputUpdate();
+        }
+
+        private void InputUpdate()
+        {
+            if (!this.inputManager.Mouse.LeftClick.WasPressedThisFrame()) return;
+
+            RaycastUtil.Raycast(out InventoryWorldItem item);
+            if (item == null) return;
+
+            if (!this.inventory.TryAdd(item.Item, item.Item.Amount)) return;
+
+            item.Collect();
         }
 
         private void OnEnable()

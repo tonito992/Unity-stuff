@@ -1,30 +1,30 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace itonigames.unitystuff.InventorySystem
 {
     public class Inventory
     {
+        private int capacity;
         private Dictionary<string, InventoryItem> stacks;
 
-        public Inventory()
+        public Inventory(int capacity)
         {
+            this.capacity = capacity;
             this.stacks = new Dictionary<string, InventoryItem>();
         }
 
-        public void Add(InventoryItem item, int amount)
+        public bool TryAdd(InventoryItem item, int amount)
         {
-            if (this.stacks.ContainsKey(item.Name))
-            {
-                this.stacks[item.Name].Add(amount);
-            }
-            else
+            if (this.stacks.Count > this.capacity) return false;
+
+            if (!this.stacks.ContainsKey(item.Name) || !item.Stackable)
             {
                 this.stacks.Add(item.Name, item);
+                return true;
             }
 
-            Debug.Log($"Add {amount}x{item.Name}");
-            Debug.Log($"There are {this.stacks[item.Name].Amount} of {this.stacks[item.Name].Name} in inventory");
+            this.stacks[item.Name].Add(amount);
+            return true;
         }
 
         public void Take(InventoryItem item, int amount)
